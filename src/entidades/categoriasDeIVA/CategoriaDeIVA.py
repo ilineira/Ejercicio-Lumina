@@ -1,30 +1,17 @@
-
+from src.entidades.patrones.Singleton import Singleton
 import threading
 
 
-class CategoriaDeIVA:
-
-    __singleton_lock = threading.Lock()
-    __singleton_instance = None
-
-    @classmethod
-    def instance(cls):
-        if not cls.__singleton_instance:
-            with cls.__singleton_lock:
-                if not cls.__singleton_instance:
-                    cls.__singleton_instance = cls()
-        return cls.__singleton_instance
+class CategoriaDeIVA(Singleton):
 
     def getCodigo(self):
-        return self.codigo
-
+        return self.instance().codigo
 
     def getDescripcion(self):
-        return self.descripcion
-
+        return self.instance().descripcion
 
     def getLetra(self):
-        return self.letra
+        return self.instance().letra
 
     def getPorcentaje(self):
-        return self.porcentaje
+        return self.instance().porcentaje

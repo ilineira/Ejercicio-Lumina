@@ -13,4 +13,4 @@ class CategoriaDeIVAFactory:
 
     @classmethod
     def getCategoriaDeIVA(cls, tipoDeIVA):
-        return cls.categoriasDeIVA[tipoDeIVA]().instance()
+        return cls.categoriasDeIVA[tipoDeIVA].instance()
