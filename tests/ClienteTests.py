@@ -33,6 +33,5 @@ class ClienteTests(unittest.TestCase):
         self.assertEqual(self.clienteConDNI.getCondicionImpositiva(), self.condicionImpositiva)
 
 
-
 if __name__ == '__main__':
     unittest.main()
