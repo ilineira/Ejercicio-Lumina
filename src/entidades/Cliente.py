@@ -1,9 +1,12 @@
+from src.entidades.categoriasDeIVA.CategoriaDeIVAFactory import CategoriaDeIVAFactory
+
+
 class Cliente(object):
 
     def __init__(self, numeroDeCliente, domicilio, condicionImpositiva, tipoDeDocumento, numeroDeDocumento):
         self.numeroDeCliente = numeroDeCliente
         self.domicilio = domicilio
-        self.condicionImpositiva = condicionImpositiva
+        self.condicionImpositiva = CategoriaDeIVAFactory.getCategoriaDeIVA(condicionImpositiva)
         self.tipoDeDocumento = tipoDeDocumento
         self.numeroDeDocumento = numeroDeDocumento
 

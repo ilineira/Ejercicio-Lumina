@@ -7,7 +7,7 @@ class ClienteTests(unittest.TestCase):
     def setUp(self) -> None:
         self.numeroDeCliente = 1
         self.domicilio = '9 de Julio'
-        self.condicionImpositiva = 'Responsable inscripto'
+        self.condicionImpositiva = 'Responsable Inscripto'
         self.tipoDeDocumentoDNI = 'Dni'
         self.tipoDeDocumentoCUIT = 'Cuit'
         self.numeroDeDocumento = 123456789
@@ -30,7 +30,7 @@ class ClienteTests(unittest.TestCase):
         self.assertEqual(self.clienteConCuit.getTipoDeDocumento(), self.tipoDeDocumentoCUIT)
 
     def test06CreoClienteConDNIYVerificoCondicionImpositiva(self):
-        self.assertEqual(self.clienteConDNI.getCondicionImpositiva(), self.condicionImpositiva)
+        self.assertEqual(self.clienteConDNI.getCondicionImpositiva().getDescripcion(), 'IVA Responsable Inscripto')
 
 
 if __name__ == '__main__':
