@@ -1,8 +1,8 @@
-from abc import abstractmethod, ABCMeta
+
 import threading
 
 
-class CategoriaDeIVA(metaclass=ABCMeta):
+class CategoriaDeIVA:
 
     __singleton_lock = threading.Lock()
     __singleton_instance = None
@@ -15,17 +15,16 @@ class CategoriaDeIVA(metaclass=ABCMeta):
                     cls.__singleton_instance = cls()
         return cls.__singleton_instance
 
-    @abstractmethod
     def getCodigo(self):
-        """Devuelve codigo de categoria de iva"""
+        return self.codigo
 
-    @abstractmethod
+
     def getDescripcion(self):
-        """Devuelve descripcion de categoria de iva"""
+        return self.descripcion
 
-    @abstractmethod
+
     def getLetra(self):
-        """Devuelve letra de categoria de iva"""
+        return self.letra
 
     def getPorcentaje(self):
-        """Devuelve porcentaje de categoria de iva"""
+        return self.porcentaje
