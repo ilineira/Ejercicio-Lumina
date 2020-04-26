@@ -1,4 +1,5 @@
 from src.entidades.estadosDePedido.EstadoPendiente import EstadoPendiente
+from src.entidades.factura.Factura import Factura
 
 
 class Pedido:
@@ -23,4 +24,8 @@ class Pedido:
 
     def facturar(self):
         self.estado.facturar(self)
-        return Fact
+        return self.armarFactura()
+
+    def armarFactura(self):
+        factura = Factura(self)
+        return factura
