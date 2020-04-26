@@ -5,7 +5,8 @@ from src.entidades.factura.Factura import Factura
 class Pedido:
 
     def __init__(self, codigo, cliente):
-        self.detalle = []
+        self.producto = ''
+        self.cantidadDeProducto = 0
         self.codigo = codigo
         self.cliente = cliente
         self.estado = EstadoPendiente()
@@ -17,7 +18,8 @@ class Pedido:
         return self.cliente
 
     def agregarProducto(self, producto, cantidad):
-        self.detalle.append([producto, cantidad])
+        self.producto = producto
+        self.cantidadDeProducto = cantidad
 
     def getDetalle(self):
         return self.detalle
@@ -29,3 +31,9 @@ class Pedido:
     def armarFactura(self):
         factura = Factura(self)
         return factura
+
+    def getProducto(self):
+        return self.producto
+
+    def getCantidadDeProducto(self):
+        return self.cantidadDeProducto
