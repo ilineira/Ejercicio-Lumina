@@ -6,5 +6,5 @@ class EstadoPendiente(Estado):
 
     estado = 'Pendiente'
 
-    def facturar(self):
+    def facturar(self, pedido):
         return EstadoFacturado()

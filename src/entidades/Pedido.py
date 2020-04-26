@@ -20,3 +20,7 @@ class Pedido:
 
     def getDetalle(self):
         return self.detalle
+
+    def facturar(self):
+        self.estado.facturar(self)
+        return Fact
