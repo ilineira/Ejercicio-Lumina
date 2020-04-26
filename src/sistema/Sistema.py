@@ -9,12 +9,12 @@ class Sistema(Singleton):
     def __init__(self):
 
         self.clientes = []
-        self.facturas = []
-        self.pedidos = []
+        self.facturasYaFacturadas = []
+        self.facturasPorFacturar = []
         self.notasDeCredito = []
         self.pararProceso = False
-        self.generadorDeReportes = GeneradorDeReportes()
-        self.facturador = Facturador()
+        self.generadorDeReportes = GeneradorDeReportes(self.instance())
+        self.facturador = Facturador(self.instance())
 
     def arrancarSistema(self):
         print('Sistema comenzo')
@@ -29,6 +29,12 @@ class Sistema(Singleton):
 
     def facturar(self):
         print('Facturando...')
-        self.facturador.facturar(self.pedidos)
-        self.generadorDeReportes.generarReporte(self.facturas, self.notasDeCredito)
+        self.facturasYaFacturadas.append(self.facturador.facturar(self.facturasPorFacturar))
+        self.generadorDeReportes.generarReporte(self.facturasYaFacturadas, self.notasDeCredito)
         print('Finalizo facturacion')
+
+    def cancelarPedidos(self):
+        print('Cancelando pedidos...')
+
+    def facturacionTerminada(self):
+        self.facturasPorFacturar.clear()
