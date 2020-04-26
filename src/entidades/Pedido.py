@@ -1,9 +1,13 @@
+from src.entidades.estadosDePedido.EstadoPendiente import EstadoPendiente
+
+
 class Pedido:
 
     def __init__(self, codigo, cliente):
         self.detalle = []
         self.codigo = codigo
         self.cliente = cliente
+        self.estado = EstadoPendiente()
 
     def getCodigo(self):
         return self.codigo
