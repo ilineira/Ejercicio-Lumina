@@ -2,7 +2,6 @@ from src.entidades.factura.NotaDeCredito import NotaDeCredito
 from entidades.factura.componentes.Cabecera import Cabecera
 from entidades.factura.componentes.Detalle import Detalle
 from entidades.factura.componentes.Pies.Pie import Pie
-from src.entidades.estados.EstadoPendiente import EstadoPendiente
 
 
 class Factura:

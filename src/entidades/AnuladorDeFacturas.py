@@ -6,6 +6,5 @@ class AnuladorDeFacturas:
     def anularFacturas(self, facturasAAnular):
         notasDeCredito = []
         for factura in facturasAAnular:
-
-            self.sistema.factura.anular()
-        return notasDeCredito
+            factura.anular()
+        self.sistema.anulacionTerminada(notasDeCredito)

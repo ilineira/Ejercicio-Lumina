@@ -1,6 +1,6 @@
 from src.entidades.patrones.Singleton import Singleton
 from src.entidades.GeneradorDeReportes import GeneradorDeReportes
-from src.entidades.Facturador import Facturador
+from entidades.Facturador import Facturador
 from src.entidades.AnuladorDeFacturas import AnuladorDeFacturas
 import datetime
 import schedule
@@ -12,7 +12,6 @@ class Sistema(Singleton):
         self.procesados = {}
         self.facturas = []
         self.porProcesar = []
-        self.pedidosPorFacturar = []
         self.pararProceso = False
         self.generadorDeReportes = GeneradorDeReportes(self.instance())
         self.facturador = Facturador(self.instance())
@@ -29,28 +28,24 @@ class Sistema(Singleton):
         self.pararProceso = True
         print('Sistema parado')
 
-    def facturar(self):
+    def facturar(self, pedidos):
         print('Facturando...')
-        self.facturador.facturar(self.pedidosPorFacturar)
+        self.facturador.facturar(pedidos)
         self.generadorDeReportes.generarReporte(self.porProcesar)
 
         print('Finalizo facturacion')
 
     def anularFacturas(self, facturasAAnular):
         print('Cancelando pedidos...')
-        self.porProcesar.append(self.anuladorDeFacturas.anularFacturas(facturasAAnular))
+        self.anuladorDeFacturas.anularFacturas(facturasAAnular)
 
     def facturacionTerminada(self, facturas):
         self.porProcesar.append(facturas)
-        self.pedidosPorFacturar.clear()
 
     def reporteTerminado(self, cosasProcesadas):
         self.procesados[datetime.datetime.now().date()] = cosasProcesadas
         self.porProcesar.clear()
         self.facturas.clear()
 
-    def cargarPedido(self, pedido):
-        self.pedidosPorFacturar.append(pedido)
-        return 'Pedido cargado'
-
-
+    def anulacionTerminada(self, notasDeCredito):
+        self.porProcesar.append(notasDeCredito)
