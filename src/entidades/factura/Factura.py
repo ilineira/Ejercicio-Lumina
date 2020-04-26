@@ -2,6 +2,7 @@ from src.entidades.factura.NotaDeCredito import NotaDeCredito
 from entidades.factura.componentes.Cabecera import Cabecera
 from entidades.factura.componentes.Detalle import Detalle
 from entidades.factura.componentes.Pies.Pie import Pie
+from src.entidades.estados.EstadoPendiente import EstadoPendiente
 
 
 class Factura:
@@ -13,7 +14,7 @@ class Factura:
         self.pie = Pie(self.detalle)
 
     def anular(self):
-        return NotaDeCredito(self.cabecera, self.pie)
+        return NotaDeCredito(self.cliente, self.cabecera, self.pie)
 
     def generarReporte(self):
         linea = '{0}-{1}-{2}-{3}-{4}-{5}'.format(self.cliente.getNumeroDeCliente(),

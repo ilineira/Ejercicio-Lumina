@@ -24,11 +24,9 @@ class PedidoTests(unittest.TestCase):
     def test03CreoPedidoYVerificoQueContengaUnicoProductoAgregado(self):
         self.pedido = Pedido(123, self.cliente)
         self.pedido.agregarProducto(self.producto1, 34)
-        self.assertEqual(self.pedido.getDetalle(), [[self.producto1, 34]])
+        self.assertEqual(self.pedido.getProducto(), self.producto1)
 
-    def test04CreoPedidoYVerificoQueContengaLosDosProductosAgregados(self):
+    def test04CreoPedidoYVerificoQueContengaLaCantidadDeProductosAgregada(self):
         self.pedido = Pedido(123, self.cliente)
         self.pedido.agregarProducto(self.producto1, 34)
-        self.pedido.agregarProducto(self.producto2, 81)
-        self.assertEqual(self.pedido.getDetalle(), [[self.producto1, 34], [self.producto2, 81]])
-
+        self.assertEqual(self.pedido.getCantidadDeProducto(), 34)

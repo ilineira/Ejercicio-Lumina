@@ -17,7 +17,7 @@ class Detalle:
         return self.precioNETO + self.montoDeIVA
 
     def calcularMontoDeIVA(self):
-        return self.producto.getPrecio() * (self.porcentajeDeIVA / 100)
+        return self.precioUnitario * self.cantidad * (self.porcentajeDeIVA / 100)
 
     def getPrecioNETO(self):
         return self.precioNETO

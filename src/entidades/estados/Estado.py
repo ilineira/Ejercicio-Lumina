@@ -1,10 +1,10 @@
 from src.entidades.patrones.Singleton import Singleton
 
 
-class Estado():
+class Estado:
 
     def facturar(self, pedido):
-        """Facturo"""
+        return self
 
     def getEstado(self):
         return self.estado

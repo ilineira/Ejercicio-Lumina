@@ -7,5 +7,4 @@ class Facturador:
         facturas = []
         for pedido in pedidos:
             facturas.append(pedido.facturar())
-        self.sistema.facturacionTerminada()
-        return facturas
+        self.sistema.facturacionTerminada(facturas)

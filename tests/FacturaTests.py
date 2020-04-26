@@ -3,7 +3,6 @@ from src.entidades.Pedido import Pedido
 from src.entidades.Cliente import Cliente
 from src.entidades.Producto import Producto
 from src.entidades.factura.NotaDeCredito import NotaDeCredito
-import datetime
 import unittest
 
 
@@ -28,3 +27,9 @@ class FacturaTests(unittest.TestCase):
 
     def test02CreoFacturaYLaAnulo(self):
         self.assertEqual(self.factura.anular().__class__, NotaDeCredito)
+
+    def test03CreoFacturaYVerificoCalculoDeMonto(self):
+        """calculo -> precio unitario * cantidad * monto de IVA"""
+        self.assertEqual(self.factura.detalle.getMontoDeIVA(), (10 * 20 * 10.05/100))
+
+
