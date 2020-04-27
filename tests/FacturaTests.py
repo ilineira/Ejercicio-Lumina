@@ -17,10 +17,10 @@ class FacturaTests(unittest.TestCase):
                     123456789
                 ))
         self.pedido.agregarProducto(Producto(1, 'Nombre', 10), 20)
-        self.factura = Factura(self.pedido)
+        self.factura = Factura(self.pedido, 1)
 
     def test01CreoFacturaGeneroReporte(self):
-        lineaReporte = '{0}-{1}-{2}-{3}-{4}-{5}'.format(1, 'Dni', 'A', '',
+        lineaReporte = '{0}-{1}-{2}-{3}-{4}-{5}\n'.format(1, 'Dni', 'A', '',
                                                         self.factura.cabecera.getFechaDeEmision(),
                                                         self.factura.pie.getMonto())
         self.assertEqual(self.factura.generarReporte(), lineaReporte)

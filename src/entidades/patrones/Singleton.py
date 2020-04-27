@@ -9,7 +9,8 @@ class Singleton(object):
     @classmethod
     def instance(cls):
         if not cls.__singleton_instance:
-            with cls.__singleton_lock:
-                if not cls.__singleton_instance:
-                    cls.__singleton_instance = cls()
+            cls.__singleton_lock.acquire()
+            if not cls.__singleton_instance:
+                cls.__singleton_instance = cls()
+            cls.__singleton_lock.release()
         return cls.__singleton_instance

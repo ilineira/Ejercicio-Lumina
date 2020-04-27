@@ -21,12 +21,12 @@ class Pedido:
         self.producto = producto
         self.cantidadDeProducto = cantidad
 
-    def facturar(self):
+    def facturar(self, numeroDeFactura):
         self.estado.facturar(self)
-        return self.armarFactura()
+        return self.armarFactura(numeroDeFactura)
 
-    def armarFactura(self):
-        factura = Factura(self)
+    def armarFactura(self, numeroDeFactura):
+        factura = Factura(self, numeroDeFactura)
         return factura
 
     def getProducto(self):
