@@ -20,7 +20,7 @@ class FacturaTests(unittest.TestCase):
         self.factura = Factura(self.pedido, 1)
 
     def test01CreoFacturaGeneroReporte(self):
-        lineaReporte = '{0}-{1}-{2}-{3}-{4}-{5}\n'.format(1, 'Dni', 'A', '',
+        lineaReporte = '{0}-{1}-{2}-{3}-{4}-{5}\n'.format(1, 'Dni', 'A', self.factura.cabecera.getNumeroDeFactura(),
                                                         self.factura.cabecera.getFechaDeEmision(),
                                                         self.factura.pie.getMonto())
         self.assertEqual(self.factura.generarReporte(), lineaReporte)
