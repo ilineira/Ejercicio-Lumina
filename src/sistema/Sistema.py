@@ -63,9 +63,11 @@ class Sistema(Singleton):
         self.ultimoNumeroDeFactura = self.ultimoNumeroDeFactura + 1
         return numero
 
-    def eliminarPedido(self, pedido):
+    def eliminarPedidos(self, pedidos):
         try:
-            self.pedidosAFacturar.remove(pedido)
+            for pedido in pedidos:
+                if pedido in self.pedidosAFacturar:
+                    self.pedidosAFacturar.remove(pedido)
         except:
             print('No existe ese pedido')
 

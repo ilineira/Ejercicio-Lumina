@@ -45,6 +45,12 @@ def main():
     pedidos = armarPedidos()
     sistema.agregarPedidos(pedidos)
 
+    pedidosAEliminar = []
+    for i in range (200):
+        pedidosAEliminar.append(random.choice(pedidos))
+
+    sistema.eliminarPedidos(pedidosAEliminar)
+
     facturas = sistema.getFacturas()
     facturasAEliminar = []
     for i in range(100):
