@@ -51,15 +51,7 @@ def main():
         facturasAEliminar.append(random.choice(facturas))
 
     sistema.anularFacturas(facturasAEliminar)
-
-
-
-
-
-
-
-    print('Comienzo a facturar')
-
+    sistema.facturar([])
 
     sistema.parar()
     return

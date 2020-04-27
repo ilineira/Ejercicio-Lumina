@@ -6,7 +6,7 @@ class NotaDeCredito:
         self.pie = pie
 
     def generarReporte(self):
-        linea = '{0}-{1}-{2}-{3}-{4}-{5}'.format(self.cliente.getNumeroDeCliente(),
+        linea = '{0}-{1}-{2}-{3}-{4}-{5}\n'.format(self.cliente.getNumeroDeCliente(),
                                                  self.cliente.getTipoDeDocumento(),
                                                  self.cabecera.getLetra(),
                                                  self.cabecera.getCodigoDeEmision(),

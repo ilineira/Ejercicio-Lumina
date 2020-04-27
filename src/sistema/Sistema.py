@@ -33,7 +33,8 @@ class Sistema(Singleton):
 
     def facturar(self, pedidos):
         print('Facturando...')
-        self.facturador.facturar(pedidos + self.pedidosAFacturar)
+        pedidosPorFacturar = pedidos + self.pedidosAFacturar
+        self.facturador.facturar(pedidosPorFacturar)
         self.generadorDeReportes.generarReporte(self.porProcesar)
         print('Finalizo facturacion')
 
@@ -42,7 +43,7 @@ class Sistema(Singleton):
         self.anuladorDeFacturas.anularFacturas(facturasAAnular)
 
     def facturacionTerminada(self, facturas):
-        self.porProcesar = facturas
+        self.porProcesar = self.porProcesar + facturas
 
     def reporteTerminado(self, cosasProcesadas):
         for cosa in cosasProcesadas:
@@ -52,10 +53,10 @@ class Sistema(Singleton):
         self.porProcesar.clear()
 
     def anulacionTerminada(self, notasDeCredito):
-        self.porProcesar.append(notasDeCredito)
+        self.porProcesar = self.porProcesar + notasDeCredito
 
-    def agregarPedidos(self, pedido):
-        self.pedidosAFacturar.append(pedido)
+    def agregarPedidos(self, pedidos):
+        self.pedidosAFacturar = self.pedidosAFacturar + pedidos
 
     def getUltimoNumerodeFactura(self):
         numero = self.ultimoNumeroDeFactura
