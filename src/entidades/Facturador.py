@@ -21,7 +21,7 @@ class Facturador:
 
         for hilo in self.hilos:
             hilo.join()
-            
+
         self.terminarFacturacion()
 
     def facturarPedido(self, pedidos):
