@@ -21,11 +21,11 @@ class Facturador:
 
         for hilo in self.hilos:
             hilo.join()
-
+            
         self.terminarFacturacion()
 
     def facturarPedido(self, pedidos):
-        while len(pedidos) != 0:
+        while len(pedidos) > 1:
             self.lock.acquire()
             try:
                 pedido = pedidos.pop()
